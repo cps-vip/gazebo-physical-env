@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+
+find_package(gazebo REQUIRED)
+
+add_library(MagneticField SHARED MagneticField.ccp)
+
+target_link_libraries(MagneticField ${GAZEBO_LIBRARIES})
