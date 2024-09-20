@@ -35,5 +35,6 @@ namespace gazebo
         event::ConnectionPtr updateConnection; // Pointer to the update event connection
         ignition::math::Vector3d magneticField; // Magnetic field vector
     };
+    
     GZ_REGISTER_MODEL_PLUGIN(MagneticFieldPlugin)
 }
