@@ -337,80 +337,105 @@
     <pose>3.2 5.285 0 0 0 0</pose>
   </include>
 
-   <!-- Add Moving Robot -->
-       <model name="moving_robot">
-      <static>0</static>
-      <link name="chassis">
-        <pose>12 0 0.4 0 0 1.5708</pose> <!-- Rotated 90 degrees to the right -->
-        <visual name="visual">
-          <geometry>
-            <box>
-              <size>1.0 0.5 0.3</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.0 0.0 1.0 1</ambient>
-            <diffuse>0.0 0.0 1.0 1</diffuse>
-            <specular>0.0 0.0 1.0 1</specular>
-          </material>
-        </visual>
-        <collision name="collision">
-          <geometry>
-            <box>
-              <size>1.0 0.5 0.3</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="left_wheel">
-        <pose>11.5 0.3 0.2 1.5708 0 0</pose> <!-- Rotated 90 degrees to touch the ground -->
-        <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>1.0 0.0 0.0 1</ambient> <!-- Red color -->
-            <diffuse>1.0 0.0 0.0 1</diffuse>
-            <specular>1.0 0.0 0.0 1</specular>
-          </material>
-        </visual>
-        <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
-        </collision>
-      </link>
-      <link name="right_wheel">
-        <pose>11.5 -0.3 0.2 1.5708 0 0</pose> <!-- Rotated 90 degrees to touch the ground -->
-        <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>1.0 0.0 0.0 1</ambient> <!-- Red color -->
-            <diffuse>1.0 0.0 0.0 1</diffuse>
-            <specular>1.0 0.0 0.0 1</specular>
-          </material>
-        </visual>
-        <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
-  </world>
+  <model name="moving_robot">
+    <static>0</static>
+    <link name="chassis">
+      <pose>12 0 0.4 0 0 1.5708</pose> <!-- Rotated 90 degrees to the right -->
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1.0 0.5 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 1.0 1</ambient>
+          <diffuse>0.0 0.0 1.0 1</diffuse>
+          <specular>0.0 0.0 1.0 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1.0 0.5 0.3</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+    <link name="left_wheel">
+      <pose>12 0.3 0.2 1.5708 0 0</pose> <!-- Adjusted position to align with the chassis -->
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.1</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.0 0.0 1</ambient> <!-- Red color -->
+          <diffuse>1.0 0.0 0.0 1</diffuse>
+          <specular>1.0 0.0 0.0 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.1</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_wheel">
+      <pose>12 -0.3 0.2 1.5708 0 0</pose> <!-- Adjusted position to align with the chassis -->
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.1</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.0 0.0 1</ambient> <!-- Red color -->
+          <diffuse>1.0 0.0 0.0 1</diffuse>
+          <specular>1.0 0.0 0.0 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.1</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <!-- Joint for left wheel -->
+    <joint name="left_wheel_joint" type="revolute">
+      <parent>chassis</parent>
+      <child>left_wheel</child>
+      <pose>12 0.3 0.2 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz> <!-- Rotation axis -->
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+        </limit>
+      </axis>
+    </joint>
+    <!-- Joint for right wheel -->
+    <joint name="right_wheel_joint" type="revolute">
+      <parent>chassis</parent>
+      <child>right_wheel</child>
+      <pose>12 -0.3 0.2 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz> <!-- Rotation axis -->
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+        </limit>
+      </axis>
+    </joint>
+  </model>
+  
+</world>
 </sdf>
