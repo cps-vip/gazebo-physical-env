@@ -63,7 +63,7 @@
 
             <link name='chassis'>
                 <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
-                <inertial> <!--inertial properties of the link mass, inertia matix-->
+                <inertial>
                     <mass>1.14395</mass>
                     <inertia>
                         <ixx>0.126164</ixx>
@@ -77,28 +77,27 @@
                 <visual name='visual'>
                     <geometry>
                         <box>
-                            <size>2.0 1.0 0.5</size> <!--question: this size is in meter-->
+                            <size>2.0 1.5 0.5</size> <!-- Increased width from 1.0 to 1.5 -->
                         </box>
                     </geometry>
-                    <!--let's add color to our link-->
                     <material>
                         <ambient>0.0 0.0 1.0 1</ambient>
                         <diffuse>0.0 0.0 1.0 1</diffuse>
                         <specular>0.0 0.0 1.0 1</specular>
                     </material>
                 </visual>
-                <collision name='collision'> <!--todo: describe why we need the collision-->
+                <collision name='collision'>
                     <geometry>
                         <box>
-                            <size>2.0 1.0 0.5</size>
+                            <size>2.0 1.5 0.5</size> <!-- Increased width from 1.0 to 1.5 -->
                         </box>
                     </geometry>
                 </collision>
             </link>
-
-            <!--let's build the left wheel-->
+            
+            <!-- Updated left wheel position -->
             <link name='left_wheel'>
-                <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+                <pose relative_to="chassis">-0.5 0.8 0 -1.5707 0 0</pose> <!-- Adjusted y-position to 0.8 -->
                 <inertial>
                     <mass>2</mass>
                     <inertia>
@@ -132,10 +131,10 @@
                     </geometry>
                 </collision>
             </link>
-
-            <!--copy and paste for right wheel but change position-->
+            
+            <!-- Updated right wheel position -->
             <link name='right_wheel'>
-                <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+                <pose relative_to="chassis">-0.5 -0.8 0 -1.5707 0 0</pose> <!-- Adjusted y-position to -0.8 -->
                 <inertial>
                     <mass>1</mass>
                     <inertia>
@@ -169,10 +168,6 @@
                     </geometry>
                 </collision>
             </link>
-
-            <frame name="caster_frame" attached_to='chassis'>
-                <pose>0.8 0 -0.2 0 0 0</pose>
-            </frame>
 
             <!--caster wheel-->
             <link name='caster'>
