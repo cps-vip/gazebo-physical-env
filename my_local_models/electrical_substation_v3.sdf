@@ -338,10 +338,10 @@
   </include>
 
    <!-- Add Moving Robot -->
-    <model name="moving_robot">
+       <model name="moving_robot">
       <static>0</static>
       <link name="chassis">
-        <pose>12 0 0.4 0 0 0</pose> <!-- Adjust position as needed -->
+        <pose>12 0 0.4 0 0 1.5708</pose> <!-- Rotated 90 degrees to the right -->
         <visual name="visual">
           <geometry>
             <box>
@@ -363,7 +363,7 @@
         </collision>
       </link>
       <link name="left_wheel">
-        <pose>11.5 0.3 0.2 0 0 0</pose>
+        <pose>11.5 0.3 0.2 1.5708 0 0</pose> <!-- Rotated 90 degrees to touch the ground -->
         <visual name="visual">
           <geometry>
             <cylinder>
@@ -372,9 +372,9 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.0 1.0 0.0 1</ambient>
-            <diffuse>0.0 1.0 0.0 1</diffuse>
-            <specular>0.0 1.0 0.0 1</specular>
+            <ambient>1.0 0.0 0.0 1</ambient> <!-- Red color -->
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+            <specular>1.0 0.0 0.0 1</specular>
           </material>
         </visual>
         <collision name="collision">
@@ -387,7 +387,7 @@
         </collision>
       </link>
       <link name="right_wheel">
-        <pose>11.5 -0.3 0.2 0 0 0</pose>
+        <pose>11.5 -0.3 0.2 1.5708 0 0</pose> <!-- Rotated 90 degrees to touch the ground -->
         <visual name="visual">
           <geometry>
             <cylinder>
@@ -396,9 +396,9 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.0 1.0 0.0 1</ambient>
-            <diffuse>0.0 1.0 0.0 1</diffuse>
-            <specular>0.0 1.0 0.0 1</specular>
+            <ambient>1.0 0.0 0.0 1</ambient> <!-- Red color -->
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+            <specular>1.0 0.0 0.0 1</specular>
           </material>
         </visual>
         <collision name="collision">
